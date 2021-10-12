@@ -68,10 +68,10 @@ bash main.sh
 
 
 ### input image1
- <img src="https://github.com/leeseomin/arte27/blob/main/s/IMG_2966.png" width="500">
+ <img src="https://github.com/leeseomin/arte47/blob/main/s/cafe_2500.png" width="500">
  
 ### output image1
- <img src="https://github.com/leeseomin/arte47/blob/main/cafe_2500g5.png" width="2000">
+ <img src="https://github.com/leeseomin/arte47/blob/main/cafe_2500g5.png" width="1800">
 
  
  
