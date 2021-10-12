@@ -46,14 +46,6 @@ cd arte47
 
 mkdir s{1..25}
 
------------------------------------------
-
-### Change the location of the following file to suit your environment in main.sh ###
-
-/home/lee/arte27/logo/mon8.png  =>
-
-/home/yourlogID/arte27/logo/mon8.png
-
 
 ```
 
