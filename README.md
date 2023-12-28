@@ -4,6 +4,20 @@
  <img src="https://github.com/leeseomin/arte47/blob/main/cafe_2500g5.png" width="2000">
 
 
+### Dependency install on mac osx 
+
+
+brew install imagemagick
+brew install gmic
+gmic up   (gmic update)
+brew install parallel
+
+if error installing :
+xcode-select --install
+
+
+
+
 ### Dependency install on ubuntu 20.04 
 
 
