@@ -7,6 +7,7 @@
 ### Dependency install on mac osx 
 
 
+```
 brew install imagemagick
 brew install gmic
 gmic up   (gmic update)
@@ -16,6 +17,7 @@ if error installing :
 xcode-select --install
 
 
+```
 
 
 ### Dependency install on ubuntu 20.04 
