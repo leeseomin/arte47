@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>arte47 Pixel Batch</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">arte47</p>
+          <h1>Pixel Batch Studio</h1>
+        </div>
+        <div class="status-pill" id="dependencyStatus">Checking tools</div>
+      </header>
+
+      <section class="workspace-grid">
+        <form class="panel controls" id="runForm">
+          <div class="panel-title">
+            <h2>Input</h2>
+            <span id="uploadStatus">Use existing folder or add images</span>
+          </div>
+
+          <label class="field wide">
+            <span>Input folder</span>
+            <input name="src" value="s" autocomplete="off">
+          </label>
+
+          <label class="upload-zone" for="images">
+            <input id="images" type="file" accept="image/*" multiple>
+            <span class="upload-icon">+</span>
+            <strong>Add source images</strong>
+            <small>Images are saved into the selected input folder.</small>
+          </label>
+
+          <div class="panel-title compact">
+            <h2>Options</h2>
+          </div>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Output folder</span>
+              <input name="out" value="s25" autocomplete="off">
+            </label>
+            <label class="field">
+              <span>Palette file</span>
+              <input name="palette" placeholder="palette.png" autocomplete="off">
+            </label>
+            <label class="field">
+              <span>LOW</span>
+              <input name="low" type="number" min="16" max="1000" value="100">
+            </label>
+            <label class="field">
+              <span>SCALE</span>
+              <input name="scale" type="number" min="1" max="100" value="30">
+            </label>
+            <label class="field">
+              <span>COLORS</span>
+              <input name="colors" type="number" min="2" max="256" value="32">
+            </label>
+            <label class="field">
+              <span>JOBS</span>
+              <input name="jobs" type="number" min="1" max="64" value="4">
+            </label>
+          </div>
+
+          <label class="toggle-row">
+            <input name="cropSquare" type="checkbox">
+            <span>Crop square before pixel processing</span>
+          </label>
+
+          <button class="primary-action" id="runButton" type="submit">Run conversion</button>
+        </form>
+
+        <section class="panel log-panel">
+          <div class="panel-title">
+            <h2>Run Log</h2>
+            <span id="runStatus">Idle</span>
+          </div>
+          <pre id="logOutput">Ready.</pre>
+        </section>
+      </section>
+
+      <section class="results-section">
+        <div class="results-header">
+          <h2>Results</h2>
+          <div class="segments" id="variantTabs">
+            <button class="active" type="button" data-variant="clean">Clean</button>
+            <button type="button" data-variant="dither">Dither</button>
+            <button type="button" data-variant="strong">Strong</button>
+            <button type="button" data-variant="outline">Outline</button>
+          </div>
+        </div>
+        <div class="result-grid" id="resultGrid"></div>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "arte47-pixel-gui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local GUI wrapper for pixel_art_batch.sh",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.3",
+    "multer": "^2.0.2"
+  }
+}
