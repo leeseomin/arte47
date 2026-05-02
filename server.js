@@ -10,7 +10,9 @@ import multer from "multer";
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.dirname(__filename);
 const SCRIPT = path.join(ROOT, "pixel_art_batch.sh");
-const PORT = Number(process.env.PORT || 3000);
+const START_PORT = Number(process.env.PORT || 3000);
+const HOST = process.env.HOST || "127.0.0.1";
+const MAX_PORT_ATTEMPTS = 20;
 const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".bmp", ".tif", ".tiff"]);
 const VARIANTS = ["clean", "dither", "strong", "outline"];
 const MAX_LOG_LINES = 500;
@@ -271,6 +273,19 @@ app.get("/outputs/:variant/:file", (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`arte47 pixel GUI running at http://localhost:${PORT}`);
-});
+function listenOnAvailablePort(port, attemptsLeft = MAX_PORT_ATTEMPTS) {
+  const server = app.listen(port, HOST, () => {
+    console.log(`arte47 pixel GUI running at http://${HOST}:${port}`);
+  });
+
+  server.on("error", (error) => {
+    if (error.code === "EADDRINUSE" && attemptsLeft > 1) {
+      console.log(`Port ${port} is in use. Trying ${port + 1}...`);
+      listenOnAvailablePort(port + 1, attemptsLeft - 1);
+      return;
+    }
+    throw error;
+  });
+}
+
+listenOnAvailablePort(START_PORT);
